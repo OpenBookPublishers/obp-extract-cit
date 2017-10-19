@@ -1,6 +1,6 @@
 # Extract-citations
 
-This repository contains a simple tool to extract bibliographic citations from content encoded in XML TEI and creates a file for submission to CrossRef's cited-by service (see the repo's [wiki](https://github.com/OpenBookPublishers/extract-citations/wiki)).
+This repository contains a simple tool to extract bibliographic citations from content encoded in XML TEI and creates a file for submission to CrossRef's cited-by service (see the repo's [wiki](https://github.com/OpenBookPublishers/Extract-citations/wiki/Extract-bibliographic-citations-from-your-content)).
 
 ## Files and directories in this repository
 * __Extract-citations-from-book.xsl__: the script that extracts bibliographic citations
@@ -25,4 +25,4 @@ To run it:
 	* (3) see eg http://www.oracle.com/technetwork/java/gazfm-138953.html
 	
 ## Further reading
-Visit the repo's [wiki](https://github.com/OpenBookPublishers/Extract-citation/wiki) to read more about the structure of the output file.
+Visit the repo's [wiki](https://github.com/OpenBookPublishers/Extract-citations/wiki/Extract-bibliographic-citations-from-your-content) to read more about the structure of the output file.
