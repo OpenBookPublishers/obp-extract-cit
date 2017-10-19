@@ -9,7 +9,7 @@ This repository contains a simple tool to extract bibliographic citations from c
 
 
 ## Extracting citations
-This XSL transformation has been developed in cunjunction with the conversion tools hosted at https://github.com/OpenBookPublishers/XML-last but can be used on any XML TEI file where bibliographic citations have been encoded as `<bibl>` elements (see http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-bibl.html). 
+This XSL transformation has been developed in conjunction with the conversion tools hosted at https://github.com/OpenBookPublishers/XML-last but can be used on any XML TEI file where bibliographic citations have been encoded as `<bibl>` elements (see http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-bibl.html). 
 This program:
 * individuates every element that has been tagged as a bibliographic entry within the input file
 * extracts and numbers them sequentially
