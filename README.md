@@ -11,9 +11,9 @@ This repository contains a simple tool to extract bibliographic citations from c
 ## Extracting citations
 This XSL transformation has been developed in conjunction with the conversion tools hosted at https://github.com/OpenBookPublishers/XML-last but can be used on any XML TEI file where bibliographic citations have been encoded as `<bibl>` elements (see http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-bibl.html). 
 This program:
-* individuates every element that has been tagged as a bibliographic entry within the input file
+* individuates every `<bibl>` element within the input file
 * extracts and numbers them sequentially
-* converts each of them to a `<citation>` or `<unstructured_citation>` element (see the repo's [wiki](https://github.com/OpenBookPublishers/extract-citations/wiki)).
+* converts each of them to a `<citation>` or `<unstructured_citation>` element (see the repo's [wiki](https://github.com/OpenBookPublishers/extract-citations/wiki) to read more about the structure of the output file).
 	
 To run it:
 1. Copy your input files to the project folder:
@@ -23,6 +23,3 @@ To run it:
 	* (1) select your input file and the XSL; the output field can be left blank
 	* (2) type `java -jar _dir_/saxon9he.jar -s:_your_dir_/Extract-citations/_your_input_file_ -xsl:_your_dir_/Extract-citations/Extract-citations-from-book.xsl -o:_your_dir_/Extract-citations/Extract-citations-from-book.xsl`
 	* (3) see eg http://www.oracle.com/technetwork/java/gazfm-138953.html
-	
-## Further reading
-Visit the repo's [wiki](https://github.com/OpenBookPublishers/Extract-citations/wiki) to read more about the structure of the output file.
