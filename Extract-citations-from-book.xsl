@@ -74,11 +74,4 @@
     <!-- Ignore any URL that is not a DOI (as recommended by CrossRef team) -->
     <xsl:template name="other-ref" match="//tei:bibl/tei:ref"/>
     
-    <!-- Do not include italics (as recommended by CrossRef team) 
-        <xsl:template match="//tei:bibl/tei:hi[contains(@rendition, 'italic')]">
-        <i>
-            <xsl:apply-templates/>
-        </i>
-    </xsl:template>-->
-    
 </xsl:stylesheet>
