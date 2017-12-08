@@ -39,14 +39,14 @@
                                    <citation key="ref{$number}">
                                        <xsl:choose>
                                            <!-- When the DOI of the work being cited is known, that is enough info  -->
-                                           <xsl:when test="./tei:ref/text()[contains(., 'doi')]">
-                                               <xsl:if test="./tei:ref[1]/text()[contains(., 'doi')]">
+                                           <xsl:when test="./tei:ref/text()[contains(., 'doi.org')]">
+                                               <xsl:if test="./tei:ref[1]/text()[contains(., 'doi.org')]">
                                                    <xsl:variable name="doi-suffix" select="substring-after(./tei:ref[1]/text(), 'org/')"/>
                                                    <doi>
                                                        <xsl:value-of select="$doi-suffix"/>
                                                    </doi>
                                                </xsl:if>
-                                               <xsl:if test="./tei:ref[2]/text()[contains(., 'doi')]">
+                                               <xsl:if test="./tei:ref[2]/text()[contains(., 'doi.org')]">
                                                    <xsl:variable name="doi-suffix" select="substring-after(./tei:ref[2]/text(), 'org/')"/>
                                                    <doi>
                                                        <xsl:value-of select="$doi-suffix"/>
@@ -73,5 +73,12 @@
     
     <!-- Ignore any URL that is not a DOI (as recommended by CrossRef team) -->
     <xsl:template name="other-ref" match="//tei:bibl/tei:ref"/>
+    
+    <!-- Do not include italics (as recommended by CrossRef team) 
+        <xsl:template match="//tei:bibl/tei:hi[contains(@rendition, 'italic')]">
+        <i>
+            <xsl:apply-templates/>
+        </i>
+    </xsl:template>-->
     
 </xsl:stylesheet>
