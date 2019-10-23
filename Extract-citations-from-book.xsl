@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
-    xmlns="http://www.crossref.org/doi_resources_schema/4.3.6"
-    xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:doi="http://www.crossref.org/schema/4.3.5">
+    xmlns="http://www.crossref.org/doi_resources_schema/4.4.1"
+    xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:doi="http://www.crossref.org/schema/4.4.1">
     <xsl:output method="xml" indent="yes"/>
     <xsl:strip-space elements="*"/>
     <xsl:variable name="OBP-base-doi"
@@ -10,9 +10,9 @@
 
     <xsl:template match="/">
         <xsl:result-document href="DOI-citations/{$doi-batch-id}-citations.xml" method="xml">
-            <doi_batch version="4.3.6" xmlns="http://www.crossref.org/doi_resources_schema/4.3.6"
+            <doi_batch version="4.1.1" xmlns="http://www.crossref.org/doi_resources_schema/4.1.1"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="http://www.crossref.org/doi_resources_schema/4.3.6 http://www.crossref.org/schema/deposit/doi_resources4.3.6.xsd">
+                xsi:schemaLocation="http://www.crossref.org/doi_resources_schema/4.1.1 http://www.crossref.org/schema/deposit/doi_resources4.1.1.xsd">
                 <head>
                     <doi_batch_id>
                         <xsl:value-of select="$doi-batch-id"/>
