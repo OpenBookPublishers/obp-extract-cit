@@ -20,9 +20,9 @@ cp *.xml $work_dir/doi-deposit.xml
 cp Extract-citations/Extract-citations-from-book.xsl $work_dir
 
 echo "Execute the stylesheet to extract citations"
-pushd $work_dir > /dev/null
-saxonb-xslt -s:XML-edition/entire-book.xml -xsl:Extract-citations-from-book.xsl -ext:on
 
-echo "Copy citations back"
-popd > /dev/null
+(cd $workdir; \
+saxonb-xslt -s:XML-edition/entire-book.xml -xsl:Extract-citations-from-book.xsl -ext:on; \
+echo "Copy citations back")
+
 cp $work_dir/DOI-citations/*-citations.xml .
