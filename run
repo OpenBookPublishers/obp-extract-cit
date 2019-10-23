@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd $(dirname $0)
+
+work_dir=$(mktemp -d -t obp-extract-cit-XXXXXX)
+
+echo "Copy relevant files to work directory"
+unzip -q *.xml.zip -d $work_dir
+cp *.xml $work_dir/doi-deposit.xml
+cp Extract-citations/Extract-citations-from-book.xsl $work_dir
+
+echo "Execute the stylesheet to extract citations"
+pushd $work_dir > /dev/null
+saxonb-xslt -s:XML-edition/entire-book.xml -xsl:Extract-citations-from-book.xsl -ext:on
+
+echo "Copy citations back"
+popd > /dev/null
+cp $work_dir/DOI-citations/*-citations.xml .
+
+rm -r $work_dir
