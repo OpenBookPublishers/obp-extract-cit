@@ -6,6 +6,14 @@ cd $(dirname $0)
 
 work_dir=$(mktemp -d -t obp-extract-cit-XXXXXX)
 
+cleanup () {
+    local rv=$?
+    rm -f -- "$work_dir"
+    exit $rv
+}
+
+trap cleanup EXIT
+
 echo "Copy relevant files to work directory"
 unzip -q *.xml.zip -d $work_dir
 cp *.xml $work_dir/doi-deposit.xml
@@ -18,5 +26,3 @@ saxonb-xslt -s:XML-edition/entire-book.xml -xsl:Extract-citations-from-book.xsl 
 echo "Copy citations back"
 popd > /dev/null
 cp $work_dir/DOI-citations/*-citations.xml .
-
-rm -r $work_dir
