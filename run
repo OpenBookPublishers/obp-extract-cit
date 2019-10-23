@@ -15,6 +15,7 @@ cleanup () {
 trap cleanup EXIT
 
 echo "Copy relevant files to work directory"
+# We need to revise the way how these files get picked up
 unzip -q *.xml.zip -d $work_dir
 cp *.xml $work_dir/doi-deposit.xml
 cp Extract-citations/Extract-citations-from-book.xsl $work_dir
