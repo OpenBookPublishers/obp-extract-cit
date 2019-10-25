@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-set -e
+set -eu
+
+book_name=$1
 
 cd $(dirname $0)
 
@@ -8,23 +10,22 @@ work_dir=$(mktemp -d -t obp-extract-cit-XXXXXX)
 
 cleanup () {
     local rv=$?
-    rm -f -- "$work_dir"
+    rm -rf -- "$work_dir"
     exit $rv
 }
 
 trap cleanup EXIT
 
 echo "Copy relevant files to work directory"
-# We need to revise the way how these files get picked up
-unzip -q *.xml.zip -d $work_dir
-cp *.xml $work_dir/doi-deposit.xml
+unzip -q ${book_name}.xml.zip -d $work_dir
+cp ${book_name}.xml $work_dir/doi-deposit.xml
 cp Extract-citations/Extract-citations-from-book.xsl $work_dir
 
 echo "Execute the stylesheet to extract citations"
 
-(cd $workdir; \
+(cd $work_dir; \
     saxonb-xslt -s:XML-edition/entire-book.xml \
                 -xsl:Extract-citations-from-book.xsl -ext:on; \
     echo "Copy citations back")
 
-cp $work_dir/DOI-citations/*-citations.xml .
+cp -r $work_dir/DOI-citations/. .
