@@ -11,5 +11,3 @@ check () {
 }
 
 check "saxonb-xslt"
-
-git submodule update --init
