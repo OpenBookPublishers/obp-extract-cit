@@ -2,7 +2,20 @@
 Wrapper to extract citations from XML editions of OBP books.
 
 ## How to run this tool
-### Setup
+### Run with docker
+```
+docker run --rm \
+  -v /path/to/local/file.xml.zip:/ebook_automation/file.xml.zip \
+  -v /path/to/local/doi_deposit.xml:/ebook_automation/file.xml \
+  -v /path/to/output:/ebook_automation/output \
+  openbookpublishers/obp-extract-cit
+```
+
+Alternatively you may clone the repo, build the image using `docker build . -t some/tag` and run the command above replacing `openbookpublishers/obp-extract-cit` with `some/tag`.
+
+
+### Run locally
+#### Setup
 This wrapper requires `saxonb-xslt` to be installed on your system. On Debian (or Debian-based distributions) this package can be installed via
 
 `apt-get install libsaxonb-java`
@@ -13,14 +26,14 @@ To perform the setup, run:
 
 The setup contains the necessary instruction to initialise the submodule.
 
-### Run
+#### Run
 To run the process, place a copy of the **XML edition of the book** and the **DOI deposit** in the _obp-extract-cit_ folder. Finally, run:
 
 `bash run prefix`
 
 where _prefix_ is the name of the book and the DOI deposit files; i.e.: `bash run Siklos-Advanced_Problems2`.
 
-### Clean-up
+#### Clean-up
 
 `bash clean [-y]`
 
