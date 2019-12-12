@@ -51,4 +51,3 @@ To run it:
 	* (1) select your input file and the XSL; the output field can be left blank
 	* (2) type `java -jar _dir_/saxon9he.jar -s:_your_dir_/Extract-citations/_your_input_file_ -xsl:_your_dir_/Extract-citations/Extract-citations-from-book.xsl -o:_your_dir_/Extract-citations/Extract-citations-from-book.xsl`
 	* (3) see eg http://www.oracle.com/technetwork/java/gazfm-138953.html
->>>>>>> Extract-citations/master
