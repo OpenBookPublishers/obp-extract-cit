@@ -7,6 +7,7 @@ book_name=$1
 cd $(dirname $0)
 
 work_dir=$(mktemp -d -t obp-extract-cit-XXXXXX)
+out_dir="${OUTDIR:-./}"
 
 cleanup () {
     local rv=$?
@@ -19,7 +20,7 @@ trap cleanup EXIT
 echo "Copy relevant files to work directory"
 unzip -q ${book_name}.xml.zip -d $work_dir
 cp ${book_name}.xml $work_dir/doi-deposit.xml
-cp Extract-citations/Extract-citations-from-book.xsl $work_dir
+cp Extract-citations-from-book.xsl $work_dir
 
 echo "Execute the stylesheet to extract citations"
 
@@ -28,4 +29,4 @@ echo "Execute the stylesheet to extract citations"
                 -xsl:Extract-citations-from-book.xsl -ext:on; \
     echo "Copy citations back")
 
-cp -r $work_dir/DOI-citations/. .
+cp -r $work_dir/DOI-citations/. $out_dir
