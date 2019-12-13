@@ -23,5 +23,6 @@ def run():
 
     print(extract_version(file_path))
 
+
 if __name__ == "__main__":
     run()

@@ -46,16 +46,16 @@ def write_output(file_path, soup):
 
 
 def run():
-    desc='Tailor Section Transformation'
+    desc = 'Tailor Section Transformation'
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument('input_file',
                         help='Input book-transformation xsl file')
     parser.add_argument('output_file',
                         help='Output book-transformation xsl file')
     parser.add_argument('-v', '--version',
-		        help='CrossRef schema version',
-		        required = True)
-    
+                        help='CrossRef schema version',
+                        required=True)
+
     args = parser.parse_args()
 
     soup_version = replace_version(args.input_file, args.version)
