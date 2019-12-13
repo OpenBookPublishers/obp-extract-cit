@@ -8,7 +8,11 @@ RUN apt-get update && \
     apt-get install -y openjdk-11-jdk libsaxonb-java zip
 RUN rm -rf /var/cache/apt/*
 
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
 COPY run ./
+COPY ./src/ ./src/
 COPY Extract-citations-from-book.xsl ./
 
 ENV OUTDIR=/ebook_automation/output

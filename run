@@ -22,7 +22,7 @@ unzip -q ${book_name}.xml.zip -d $work_dir
 cp ${book_name}.xml $work_dir/doi-deposit.xml
 
 echo "Tailor Extract-citations-from-book.xsl"
-xref_schema=`python3 src/extract_schema_version.py doi-deposit.xml`
+xref_schema=`python3 src/extract_schema_version.py ${book_name}.xml`
 python3 src/tailor_extract_citations.py \
            Extract-citations-from-book.xsl \
            $work_dir/Extract-citations-from-book_tailored.xsl \
