@@ -39,6 +39,16 @@ where _prefix_ is the name of the book and the DOI deposit files; i.e.: `bash ru
 
 would remove temporary files (untracked files and folders stored in the _obp-extract-cit_ folder). The script asks for the user's confirmation before removing the files, but if you are running this as part of a script you might want to use the`-y` flag to bypass the confirmation.
 
+## DEV
+### Crossref schema version
+
+`Extract-citations-from-book.xsl` fails if the Crossref schema version declared in the DOI deposit does not correspond with the one hardcoded in the stylesheets.
+
+Since the version of our DOI deposits changed over the time, we need a resilient system able to process the all the deposits. The small collection of scripts stored in `./src.` serve for this purpose:
+
+ -  `./src/extract_schema_version.py` reads the schema version declared in the DOI deposit;
+ -  `./src/tailor_extract_citations.py` produces compatible variations of the stylesheets.
+
 ## Extract-citations
 
 This repository contains a simple tool to extract bibliographic citations from content encoded in XML TEI and creates a file for submission to CrossRef's cited-by service (see the repo's [wiki](https://github.com/OpenBookPublishers/Extract-citations/wiki)).
