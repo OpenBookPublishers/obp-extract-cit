@@ -33,7 +33,8 @@ def replace_version(file_path, schema_version):
         # Special case - Replace schema version in xsi:schemalocation
         # i.e. <doi_batch xsi:schemaLocation="url1 url2">
         urls = soup.find('doi_batch')['xsi:schemalocation'].split(' ')
-        new_urls = [urljoin(url, schema_version) for url in urls]
+        new_urls = [urljoin(urls[0], schema_version),
+                    urljoin(urls[1], 'doi_resources' + schema_version + '.xsd')]
 
         soup.find('doi_batch')['xsi:schemalocation'] = ' '.join(new_urls)
 
